@@ -1,5 +1,5 @@
 /* ============================================================
-   Sunny Smile Printing PLC — main.js
+   Sunny Smile Trading PLC — main.js
    Handles: nav, scroll effects, reveal animations, portfolio
    filtering, counters, skill bars, and demo form handling.
    ============================================================ */
