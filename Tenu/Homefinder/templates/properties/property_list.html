@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<section class="container" style="padding: var(--spacing-md) 0;">
+    <h1>Property Listings</h1>
+
+    <div style="display: flex; gap: var(--spacing-md);">
+        <!-- Filters Sidebar -->
+        <aside
+            style="width: 250px; flex-shrink: 0; background-color: var(--color-white); padding: 1rem; border-radius: 8px;">
+            <h3>Filter By</h3>
+            <form action="" method="GET">
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <input type="range" name="min_price" min="0" max="5000">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>$0</span>
+                        <span>$5000+</span>
+                    </div>
+                </div>
+
+                <div class="filter-group" style="margin-top: 1rem;">
+                    <label>Property Type</label>
+                    <div><input type="checkbox" name="type" value="apartment"> Apartment</div>
+                    <div><input type="checkbox" name="type" value="house"> House</div>
+                    <div><input type="checkbox" name="type" value="villa"> Villa</div>
+                </div>
+
+                <div class="filter-group" style="margin-top: 1rem;">
+                    <label>Amenities</label>
+                    <div><input type="checkbox" name="amenity" value="pool"> Pool</div>
+                    <div><input type="checkbox" name="amenity" value="gym"> Gym</div>
+                    <div><input type="checkbox" name="amenity" value="parking"> Parking</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Apply
+                    Filters</button>
+            </form>
+        </aside>
+
+        <!-- Results Grid -->
+        <div class="property-grid" style="flex-grow: 1; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+            {% for property in properties %}
+            <div class="property-card">
+                <div class="card-image"
+                    style="{% if property.get_main_image %}background-image: url('{{ property.get_main_image }}'); background-size: cover; background-position: center;{% endif %}">
+                    {% if property.is_unavailable %}
+                    <span class="card-badge" style="background: rgba(239, 68, 68, 0.92); color: #fff;">Not Available</span>
+                    {% endif %}
+                </div>
+                <div class="card-content">
+                    <div class="card-price">${{ property.price_per_month }}/mo</div>
+                    <h3 class="card-title">{{ property.title }}</h3>
+
+                    <div class="card-features">
+                        <span class="card-feature"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> {{ property.city }}</span>
+                        <span class="card-feature"><i data-lucide="map" style="width: 16px; height: 16px;"></i> {{ property.location|default:property.city }}</span>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                        <a href="{% url 'property_detail' id=property.id %}" class="btn btn-primary"
+                            style="flex-grow: 1; text-align: center;">View</a>
+                        <button class="btn btn-outline" title="Add to Favorites"><i data-lucide="heart"
+                                style="width: 16px; height: 16px;"></i></button>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                <h3>No properties found</h3>
+                <p>Try adjusting your search criteria.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

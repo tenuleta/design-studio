@@ -1,0 +1,499 @@
+/* Role badge in dashboard sidebar */
+.role-badge {
+    display: inline-block;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+:root {
+    --color-primary: #0a192f;
+    --color-primary-light: #112240;
+    --color-secondary: #f8f8f8;
+    --color-text-main: #333333;
+    --color-text-light: #8892b0;
+    --color-accent: #64ffda;
+    /*  A nice teal/gold alternative for dark themes, but user asked for gold specifically? Let's stick to a classy gold */
+    --color-gold: #5e9ca0;
+    --color-white: #ffffff;
+
+    --font-main: 'Inter', sans-serif;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    --border-radius: 8px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-secondary);
+    color: var(--color-text-main);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ===== NAVBAR ===== */
+.site-nav {
+    background: var(--color-primary);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.site-nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-nav .brand {
+    color: var(--color-gold);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.site-nav .links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav .links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.site-nav .links a:hover {
+    color: var(--color-gold);
+}
+
+.site-nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nav-login-btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 5px;
+    color: var(--color-white) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    background: transparent;
+    transition: background 0.2s;
+}
+
+.nav-login-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-signup-btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    border-radius: 5px;
+    color: var(--color-white) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background 0.2s;
+}
+
+.nav-signup-btn:hover {
+    background: #4a8286;
+}
+
+.avatar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-wrapper {
+    position: relative;
+}
+
+.avatar-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    background: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    min-width: 200px;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+.avatar-dropdown.show {
+    display: block;
+}
+
+.avatar-dropdown .dd-header {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #eee;
+    background: #fafafa;
+}
+
+.avatar-dropdown .dd-header strong {
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.avatar-dropdown .dd-header small {
+    color: #888;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.avatar-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.avatar-dropdown a:hover {
+    background: #f5f5f5;
+}
+
+.avatar-dropdown .dd-logout {
+    border-top: 1px solid #eee;
+}
+
+.avatar-dropdown .dd-logout a {
+    color: #e74c3c;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #4a8286;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.btn-outline:hover {
+    background-color: rgba(94, 156, 160, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* It would be nice to have a subtle pattern or gradient here */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, var(--color-primary-light), transparent);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    color: var(--color-white);
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Search Bar */
+.search-bar {
+    background-color: var(--color-white);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: var(--spacing-sm);
+    box-shadow: var(--shadow-md);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-bar input,
+.search-bar select {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-family: inherit;
+}
+
+.search-bar button {
+    flex-grow: 0;
+}
+
+/* Property Grid */
+.section-title {
+    text-align: center;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-image {
+    height: 200px;
+    background-color: #ddd;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-primary);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+}
+
+.card-content {
+    padding: var(--spacing-sm);
+}
+
+.card-price {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-location {
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-features {
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.card-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--spacing-lg) 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.footer-column h4 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a:hover {
+    color: var(--color-gold);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.auth-form-container {
+    max-width: 400px;
+    margin: var(--spacing-lg) auto;
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Specific Section Overrides */
+.landlord-cta h2,
+.landlord-cta p {
+    color: var(--color-white) !important;
+}

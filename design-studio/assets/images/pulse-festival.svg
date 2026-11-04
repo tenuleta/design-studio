@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Pulse Festival poster design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#ffb84d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#180f16"/>
+  <path d="M-40 430 Q120 330 280 430 T640 430 T1000 430" fill="none" stroke="url(#a)" stroke-width="10"/>
+  <path d="M-40 480 Q120 380 280 480 T640 480 T1000 480" fill="none" stroke="#3a2434" stroke-width="6"/>
+  <text x="400" y="230" font-family="'Arial Black', Arial, sans-serif" font-size="108" font-weight="900" fill="#f8eef3" text-anchor="middle">PULSE</text>
+  <text x="400" y="292" font-family="Arial, sans-serif" font-size="26" letter-spacing="14" fill="#a78bfa" text-anchor="middle">MUSIC FESTIVAL 2026</text>
+  <text x="400" y="546" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#6e5563" text-anchor="middle">POSTER DESIGN</text>
+</svg>

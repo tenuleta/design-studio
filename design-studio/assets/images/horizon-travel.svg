@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Horizon Travel brochure design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4dd4ff"/>
+      <stop offset="0.5" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#12121c"/>
+  <rect x="80" y="90" width="640" height="340" rx="24" fill="url(#a)" opacity="0.18" stroke="#3a3a52" stroke-width="2"/>
+  <circle cx="400" cy="260" r="90" fill="url(#a)" opacity="0.85"/>
+  <path d="M170 380 L290 280 L370 380 Z" fill="#12121c"/>
+  <path d="M320 380 L470 250 L620 380 Z" fill="#1c1c2c"/>
+  <rect x="80" y="380" width="640" height="50" fill="#12121c"/>
+  <text x="400" y="500" font-family="'Trebuchet MS', Arial, sans-serif" font-size="34" letter-spacing="8" fill="#e6e6f2" text-anchor="middle">HORIZON TRAVEL</text>
+  <text x="400" y="542" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#5b5b78" text-anchor="middle">BROCHURE DESIGN</text>
+</svg>

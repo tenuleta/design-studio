@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Mama Mboga packaging design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8bd450"/>
+      <stop offset="1" stop-color="#3ddc97"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#12180f"/>
+  <path d="M400 120 C480 150 510 250 460 340 C430 396 370 396 340 340 C290 250 320 150 400 120 Z" fill="url(#a)"/>
+  <line x1="400" y1="150" x2="400" y2="360" stroke="#12180f" stroke-width="6"/>
+  <path d="M400 220 L460 190 M400 260 L452 236 M400 300 L444 282" stroke="#12180f" stroke-width="4" stroke-linecap="round"/>
+  <text x="400" y="470" font-family="Verdana, Arial, sans-serif" font-size="30" letter-spacing="6" fill="#e4f2d9" text-anchor="middle">MAMA MBOGA</text>
+  <text x="400" y="510" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#5d7a4a" text-anchor="middle">PACKAGING DESIGN</text>
+</svg>

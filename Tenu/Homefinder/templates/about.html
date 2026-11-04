@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Homefinder{% endblock %}
+
+{% block content %}
+<section class="hero" style="padding: var(--spacing-lg) 0;">
+    <div class="container hero-content">
+        <h1>About Homefinder</h1>
+        <p>Connecting people with their ideal living spaces since 2026.</p>
+    </div>
+</section>
+
+<section class="container" style="padding: var(--spacing-lg) 0; max-width: 800px;">
+    <h2 class="section-title" style="text-align: left; margin-top: 0;">Our Mission</h2>
+    <p style="font-size: 1.1rem; color: #555; margin-bottom: var(--spacing-md);">
+        At Homefinder, we believe that finding a home should be as enjoyable as living in one. Our platform simplifies
+        the rental process for both tenants and landlords, bringing transparency and ease to the real estate market.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+        <div>
+            <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                <i data-lucide="shield-check" style="color: var(--color-gold);"></i> Trust & Security
+            </h3>
+            <p>Every listing is verified to ensure the highest standards of safety and reliability for our community.
+            </p>
+        </div>
+        <div>
+            <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                <i data-lucide="search" style="color: var(--color-gold);"></i> Easy Discovery
+            </h3>
+            <p>Our advanced filtering tools help you find exactly what you're looking for, from pet-friendly flats to
+                luxury villas.</p>
+        </div>
+    </div>
+</section>
+
+<section class="landlord-cta"
+    style="background-color: var(--color-primary-light); color: var(--color-white); padding: var(--spacing-lg) 0;">
+    <div class="container" style="text-align: center;">
+        <h2 style="color: var(--color-white);">Join Our Growing Community</h2>
+        <p style="margin-bottom: var(--spacing-md);">Whether you're looking for a new home or listing a property, we've
+            got you covered.</p>
+        <div style="display: flex; gap: var(--spacing-sm); justify-content: center;">
+            <a href="{% url 'property_list' %}" class="btn btn-primary">Browse Properties</a>
+            <a href="{% url 'register' %}" class="btn btn-outline"
+                style="border-color: var(--color-white); color: var(--color-white);">Sign Up Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

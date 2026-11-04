@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Savanna Safari flyer design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#1b1410"/>
+  <circle cx="400" cy="240" r="110" fill="url(#a)" opacity="0.9"/>
+  <path d="M0 430 L200 300 L340 430 Z" fill="#2e2118"/>
+  <path d="M240 430 L440 270 L660 430 Z" fill="#3a2a1e"/>
+  <path d="M540 430 L700 330 L800 430 Z" fill="#2e2118"/>
+  <rect y="430" width="800" height="170" fill="#241a12"/>
+  <text x="400" y="505" font-family="Georgia, serif" font-size="40" letter-spacing="6" fill="#f6ead9" text-anchor="middle">SAVANNA SAFARI</text>
+  <text x="400" y="548" font-family="Arial, sans-serif" font-size="15" letter-spacing="7" fill="#b08d64" text-anchor="middle">FLYER DESIGN</text>
+</svg>

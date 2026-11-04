@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Log In - Homefinder{% endblock %}
+
+{% block content %}
+<div class="auth-form-container">
+    <h2 style="text-align: center; margin-bottom: var(--spacing-md);">Welcome Back</h2>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div
+        style="padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; border: 1px solid {% if 'success' in message.tags %}#b7ebc7{% else %}#fcc{% endif %}; background: {% if 'success' in message.tags %}#eefbf1{% else %}#fee{% endif %}; color: {% if 'success' in message.tags %}#1b7f3b{% else %}#c00{% endif %};">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="e.g. tenu" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                <input type="checkbox" style="width: auto;"> Remember me
+            </label>
+            <a href="#" style="color: var(--color-gold); font-size: 0.9rem;">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Log In</button>
+    </form>
+
+    <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+        Don't have an account? <a href="{% url 'register' %}" style="color: var(--color-gold); font-weight: bold;">Sign
+            Up</a>
+    </div>
+</div>
+{% endblock %}

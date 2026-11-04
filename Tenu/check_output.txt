@@ -1,0 +1,4 @@
+No broken tags in Homefinder\templates\dashboard\index.html
+Broken tags in Homefinder\templates\base.html:
+  '{{\n                            user.username|first|upper }}'
+  '{{\n                                    user.username }}'

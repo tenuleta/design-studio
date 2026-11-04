@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Homefinder - Find Your Dream Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Find Your Perfect Rental</h1>
+        <p>Discover thousands of listings in top Neighborhoods. From cozy apartments to luxury estates.</p>
+
+        <form class="search-bar" action="{% url 'property_list' %}" method="GET">
+            <input type="text" placeholder="Enter City, Neighborhood, or Zip Code" name="q">
+            <select name="type">
+                <option value="">All Types</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="villa">Villa</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</section>
+
+<section class="container" style="padding: var(--spacing-lg) 0;">
+    <h2 class="section-title">Featured Properties</h2>
+    <div class="property-grid">
+        {% for property in featured_properties %}
+        <div class="property-card">
+            <div class="card-image"
+                style="{% if property.get_main_image %}background-image: url('{{ property.get_main_image }}'); background-size: cover; background-position: center;{% endif %}">
+                <!-- Placeholder if no image -->
+                {% if property.is_unavailable %}
+                <span class="card-badge" style="background: rgba(239, 68, 68, 0.92); color: #fff;">Not Available</span>
+                {% else %}
+                <span class="card-badge">Featured</span>
+                {% endif %}
+            </div>
+            <div class="card-content">
+                <div class="card-price">${{ property.price_per_month }}/mo</div>
+                <h3 class="card-title">{{ property.title }}</h3>
+
+                <div class="card-features">
+                    <span class="card-feature"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> {{ property.city }}</span>
+                    <span class="card-feature"><i data-lucide="map" style="width: 16px; height: 16px;"></i> {{ property.location|default:property.city }}</span>
+                </div>
+
+                <a href="{% url 'property_detail' id=property.id %}" class="btn btn-primary"
+                    style="margin-top: 1rem; width: 100%; display: block; text-align: center;">View Details</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>No featured properties available at the moment.</p>
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{% url 'property_list' %}" class="btn btn-outline">View All Properties</a>
+    </div>
+</section>
+
+{% if not user.is_authenticated or user.role == 'landlord' %}
+<section class="landlord-cta"
+    style="background-color: var(--color-primary-light); color: var(--color-white); padding: var(--spacing-lg) 0; margin-top: var(--spacing-lg);">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+            <h2 style="color: var(--color-white);">Are you a Landlord?</h2>
+            <p>List your property with us and reach thousands of potential tenants today.</p>
+        </div>
+        <a href="{% url 'add_property' %}" class="btn btn-primary">List Your Property</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

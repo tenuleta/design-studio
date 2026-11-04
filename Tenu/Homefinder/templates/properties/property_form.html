@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add New Listing - Homefinder{% endblock %}
+
+{% block content %}
+<div style="background: #f1f5f9; min-height: calc(100vh - 80px); padding: 2rem 0;">
+    <div class="container" style="max-width: 800px;">
+        <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Add New Listing</h2>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div
+            style="margin-bottom: 1rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.9rem; border: 1px solid {% if 'success' in message.tags %}#b7ebc7{% else %}#fcc{% endif %}; background: {% if 'success' in message.tags %}#eefbf1{% else %}#fee{% endif %}; color: {% if 'success' in message.tags %}#1b7f3b{% else %}#c00{% endif %};">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <form class="property-form" method="POST" enctype="multipart/form-data"
+            style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-md);">
+            {% csrf_token %}
+            <div class="form-section" style="margin-bottom: 2rem;">
+                <h4
+                    style="margin-bottom: 1rem; color: var(--color-primary); border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    Basic Information</h4>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Listing Title *</label>
+                        <input type="text" name="title" placeholder="e.g. Modern Apartment in Downtown" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label>Price ($/month) *</label>
+                        <input type="number" name="price" placeholder="2500" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="villa">Villa</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="5"
+                        style="width: 100%; border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px;"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4
+                    style="margin-bottom: 1rem; color: var(--color-primary); border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    Location</h4>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Address *</label>
+                        <input type="text" name="address" placeholder="123 Main St" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>City *</label>
+                        <input type="text" name="city" placeholder="Los Angeles" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4
+                    style="margin-bottom: 1rem; color: var(--color-primary); border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    Amenities</h4>
+
+                <div class="amenities-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin-top: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox"
+                            name="has_ac"> Air
+                        Conditioning</label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox"
+                            name="has_pool">
+                        Swimming Pool</label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox"
+                            name="has_gym">
+                        Gym</label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox"
+                            name="has_parking">
+                        Parking</label>
+                </div>
+            </div>
+
+            <div class="form-section" style="margin-top: 2rem;">
+                <h4
+                    style="margin-bottom: 1rem; color: var(--color-primary); border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    Gallery</h4>
+
+                <div class="upload-area"
+                    style="border: 2px dashed #ddd; padding: 2rem; text-align: center; border-radius: 8px; cursor: pointer; color: #666; display: flex; flex-direction: column; align-items: center;">
+                    <i data-lucide="upload-cloud" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i>
+                    <p>Select images to upload</p>
+                    <input type="file" name="images" multiple style="margin-top: 1rem;">
+                </div>
+            </div>
+
+            <div class="form-actions" style="margin-top: 2rem; text-align: right;">
+                <a href="{% url 'dashboard' %}" class="btn btn-outline" style="margin-right: 1rem;">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save Listing</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

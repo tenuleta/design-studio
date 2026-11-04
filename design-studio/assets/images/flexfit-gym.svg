@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="FlexFit Gym advertising design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#141018"/>
+  <g stroke="url(#a)" stroke-width="26">
+    <line x1="80" y1="560" x2="440" y2="120"/>
+    <line x1="240" y1="580" x2="600" y2="140"/>
+    <line x1="420" y1="600" x2="760" y2="180"/>
+  </g>
+  <rect x="90" y="80" width="330" height="120" fill="#141018"/>
+  <text x="110" y="172" font-family="'Arial Black', Arial, sans-serif" font-size="76" font-weight="900" fill="#f4f4f6">FLEXFIT</text>
+  <text x="112" y="380" font-family="Verdana, Arial, sans-serif" font-size="20" letter-spacing="8" fill="#c9b8e8">NO EXCUSES.</text>
+  <text x="400" y="552" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#8a6f9e" text-anchor="middle">ADVERTISING DESIGN</text>
+</svg>

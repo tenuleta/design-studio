@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up - Homefinder{% endblock %}
+
+{% block content %}
+<div
+    style="display: flex; justify-content: center; align-items: center; padding: var(--spacing-lg) 1rem; min-height: 80vh;">
+    <div
+        style="background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.1); padding: 2.5rem; width: 100%; max-width: 700px;">
+
+        <h2 style="text-align: center; margin-bottom: 0.25rem; color: var(--color-primary);">Create an Account</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 1.5rem; font-size: 0.9rem;">Join Homefinder as a
+            Tenant or Landlord</p>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div
+            style="background: #fee; border: 1px solid #fcc; color: #c00; padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem;">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- Role Selector -->
+            <div style="margin-bottom: 1.25rem;">
+                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">I am
+                    a:</label>
+                <div style="display: flex; gap: 1rem;">
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; border: 2px solid #ddd; padding: 0.5rem 1rem; border-radius: 6px; flex-grow: 1; transition: border-color 0.2s;">
+                        <input type="radio" name="role" value="tenant" checked style="width: auto;"> Tenant
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; border: 2px solid #ddd; padding: 0.5rem 1rem; border-radius: 6px; flex-grow: 1; transition: border-color 0.2s;">
+                        <input type="radio" name="role" value="landlord" style="width: auto;"> Landlord
+                    </label>
+                </div>
+            </div>
+
+            <!-- 2-Column Grid for the remaining fields -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+                <!-- Full Name -->
+                <div>
+                    <label for="fullname"
+                        style="display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;">Full
+                        Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="John Doe"
+                        style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;"
+                        required>
+                </div>
+
+                <!-- Username -->
+                <div>
+                    <label for="username"
+                        style="display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;">Username</label>
+                    <input type="text" id="username" name="username" placeholder="e.g. tenu"
+                        style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;"
+                        required>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email"
+                        style="display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;">Email
+                        Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com"
+                        style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;"
+                        required>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password"
+                        style="display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••"
+                        style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;"
+                        required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label for="confirm_password"
+                        style="display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;">Confirm
+                        Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••"
+                        style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;"
+                        required>
+                </div>
+
+            </div>
+
+            <!-- Terms -->
+            <p style="margin-top: 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #666;">
+                By signing up, you agree to our
+                <a href="#" style="color: var(--color-gold);">Terms of Service</a> &
+                <a href="#" style="color: var(--color-gold);">Privacy Policy</a>.
+            </p>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem; font-size: 1rem;">
+                Create Account
+            </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.25rem; font-size: 0.9rem;">
+            Already have an account?
+            <a href="{% url 'login' %}" style="color: var(--color-gold); font-weight: bold;">Log In</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

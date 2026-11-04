@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Homefinder{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="{% url 'home' %}" class="brand">
+                <i data-lucide="home"></i> Homefinder
+            </a>
+            <ul class="links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'property_list' %}">Properties</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                {% if user.is_authenticated %}
+                <div class="avatar-wrapper">
+                    <button class="avatar-btn" onclick="document.getElementById('ddMenu').classList.toggle('show')">
+                        {{ user.username|first|upper }}
+                    </button>
+                    <div id="ddMenu" class="avatar-dropdown">
+                        <div class="dd-header">
+                            <strong>{{ user.username }}</strong><br>
+                            <small>{{ user.role }}</small>
+                        </div>
+                        {% if user.role == 'landlord' %}
+                        <a href="{% url 'dashboard' %}"><i data-lucide="layout-dashboard"
+                                style="width:15px;height:15px;"></i> Dashboard</a>
+                        <a href="{% url 'add_property' %}"><i data-lucide="plus-circle"
+                                style="width:15px;height:15px;"></i> Add Property</a>
+                        {% else %}
+                        <a href="{% url 'property_list' %}"><i data-lucide="search" style="width:15px;height:15px;"></i>
+                            Browse Properties</a>
+                        {% endif %}
+                        <div class="dd-logout">
+                            <a href="{% url 'logout' %}"><i data-lucide="log-out" style="width:15px;height:15px;"></i>
+                                Log Out</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-login-btn">Log In</a>
+                <a href="{% url 'register' %}" class="nav-signup-btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h4>Homefinder</h4>
+                <p>Your trusted partner in finding the perfect rental property.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'property_list' %}">Browse Properties</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links" style="display: flex; gap: 1rem;">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2026 Homefinder. All rights reserved.
+        </div>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+    <script>
+        lucide.createIcons();
+        document.addEventListener('click', function (e) {
+            var dd = document.getElementById('ddMenu');
+            if (!dd) return;
+            var btn = dd.previousElementSibling;
+            if (!btn.contains(e.target) && !dd.contains(e.target)) {
+                dd.classList.remove('show');
+            }
+        });
+        var avatarBtn = document.querySelector('.avatar-btn');
+        if (avatarBtn) {
+            avatarBtn.addEventListener('click', function () {
+                setTimeout(function () { lucide.createIcons(); }, 10);
+            });
+        }
+    </script>
+</body>
+
+</html>
