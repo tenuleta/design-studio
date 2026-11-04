@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Urban Thread brand identity">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f4f6"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#101014"/>
+  <g fill="none" stroke="url(#a)" stroke-width="4">
+    <rect x="230" y="90" width="150" height="150"/>
+    <rect x="400" y="90" width="150" height="150" fill="#7c5cff" stroke="none"/>
+    <rect x="230" y="260" width="150" height="150" fill="#1d1d28" stroke="#2c2c3c"/>
+    <rect x="400" y="260" width="150" height="150"/>
+    <circle cx="305" cy="335" r="42" fill="#a78bfa" stroke="none"/>
+  </g>
+  <text x="400" y="492" font-family="'Trebuchet MS', Arial, sans-serif" font-size="30" letter-spacing="12" fill="#d9d9e6" text-anchor="middle">URBAN THREAD</text>
+  <text x="400" y="532" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#5b5b70" text-anchor="middle">BRAND IDENTITY</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Business card design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#12121a"/>
+  <rect x="150" y="185" width="420" height="240" rx="18" fill="#1c1c2a" stroke="#2e2e42" stroke-width="2" transform="rotate(-6 360 305)"/>
+  <rect x="230" y="195" width="420" height="240" rx="18" fill="url(#a)"/>
+  <text x="272" y="290" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">Sunny Smile</text>
+  <text x="272" y="330" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">Trading</text>
+  <rect x="272" y="358" width="120" height="4" fill="rgba(255,255,255,0.75)"/>
+  <text x="272" y="392" font-family="Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.85)">Graphic Design · Addis Ababa</text>
+  <text x="400" y="545" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#5b5b70" text-anchor="middle">BUSINESS CARD DESIGN</text>
+</svg>

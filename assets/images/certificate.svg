@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Certificate design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#151210"/>
+  <rect x="100" y="80" width="600" height="400" rx="8" fill="#1e1812" stroke="url(#a)" stroke-width="3"/>
+  <rect x="118" y="98" width="564" height="364" rx="4" fill="none" stroke="#3a2e22" stroke-width="1.5"/>
+  <text x="400" y="180" font-family="Georgia, serif" font-size="34" letter-spacing="6" fill="#f6ead9" text-anchor="middle">CERTIFICATE</text>
+  <text x="400" y="222" font-family="Arial, sans-serif" font-size="15" letter-spacing="4" fill="#b08d64" text-anchor="middle">OF ACHIEVEMENT</text>
+  <text x="400" y="288" font-family="Georgia, serif" font-size="20" fill="#e8d9c4" text-anchor="middle">This is proudly presented to</text>
+  <text x="400" y="336" font-family="Georgia, serif" font-size="30" font-style="italic" fill="#ffb84d" text-anchor="middle">Name Surname</text>
+  <circle cx="640" cy="418" r="26" fill="none" stroke="url(#a)" stroke-width="3"/>
+  <circle cx="640" cy="418" r="16" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="400" y="545" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#8a6a44" text-anchor="middle">CERTIFICATE DESIGN</text>
+</svg>

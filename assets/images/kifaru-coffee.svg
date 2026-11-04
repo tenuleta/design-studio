@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Kifaru Coffee logo design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#14141c"/>
+  <circle cx="400" cy="250" r="118" fill="none" stroke="url(#a)" stroke-width="14"/>
+  <circle cx="400" cy="250" r="86" fill="none" stroke="#2a2a38" stroke-width="2"/>
+  <text x="400" y="292" font-family="Georgia, 'Times New Roman', serif" font-size="112" fill="#f4f4f6" text-anchor="middle">K</text>
+  <text x="400" y="452" font-family="Arial, sans-serif" font-size="30" letter-spacing="10" fill="#b9b9cc" text-anchor="middle">KIFARU COFFEE</text>
+  <text x="400" y="492" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#5b5b70" text-anchor="middle">LOGO DESIGN</text>
+</svg>

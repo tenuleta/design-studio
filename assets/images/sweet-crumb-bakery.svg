@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Sweet Crumb Bakery logo design">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#1c1410"/>
+  <path d="M320 300 L480 300 L450 390 L350 390 Z" fill="url(#a)"/>
+  <path d="M320 300 Q290 250 330 240 Q340 200 400 210 Q460 200 470 240 Q510 250 480 300 Z" fill="#f6ead9"/>
+  <circle cx="400" cy="180" r="12" fill="#a78bfa"/>
+  <path d="M300 430 L500 430" stroke="#3a2c22" stroke-width="8" stroke-linecap="round"/>
+  <text x="400" y="505" font-family="Georgia, serif" font-size="34" letter-spacing="4" fill="#f6ead9" text-anchor="middle">Sweet Crumb</text>
+  <text x="400" y="548" font-family="Arial, sans-serif" font-size="14" letter-spacing="6" fill="#8a6a54" text-anchor="middle">LOGO DESIGN</text>
+</svg>
